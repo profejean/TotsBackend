@@ -13,10 +13,19 @@ class Space extends Model
         'location',
         'capacity',
         'description',
+        'type', 
+        'price'
+
     ];
 
     public function reservations()
     {
         return $this->hasMany(Reservation::class);
     }
+
+    public function images()
+    {
+        return $this->hasMany(SpaceImage::class);
+    }
+
 }

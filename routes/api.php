@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SpaceController;
+use App\Http\Controllers\ImageController;
 
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
@@ -22,5 +23,10 @@ Route::middleware(['jwt'])->group(function () {
     Route::get('reservations/{id}', [ReservationController::class, 'show']);
     Route::put('reservations/{id}', [ReservationController::class, 'update']);
     Route::delete('reservations/{id}', [ReservationController::class, 'destroy']);
+
+    //Images
+    Route::post('spaces/{space}/images', [ImageController::class, 'store']);
+    Route::get('spaces/{space}/images', [ImageController::class, 'index']);
+
 
 });
