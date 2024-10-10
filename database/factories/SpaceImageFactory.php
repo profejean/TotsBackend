@@ -5,7 +5,7 @@ use App\Models\SpaceImage;
 use App\Models\Space;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ImageFactory extends Factory
+class SpaceImageFactory extends Factory
 {
     protected $model = SpaceImage::class;
 

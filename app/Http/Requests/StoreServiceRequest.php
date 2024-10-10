@@ -11,7 +11,7 @@ class StoreServiceRequest extends FormRequest
             'name' => 'required|string|max:255',
             'description' => 'required|string',
             'price' => 'required|numeric|min:0',
-            'space_id' => 'required|exists:spaces,id', // Debe existir un espacio con ese ID
+            'space_id' => 'required|exists:spaces,id', 
         ];
     }
 

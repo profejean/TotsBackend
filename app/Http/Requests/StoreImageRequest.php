@@ -13,15 +13,17 @@ class StoreImageRequest extends FormRequest
     public function rules()
     {
         return [
-            'url' => 'required|url',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', // Valida el archivo de imagen
         ];
     }
 
     public function messages()
     {
         return [
-            'url.required' => 'La URL de la imagen es obligatoria.',
-            'url.url' => 'La URL proporcionada no es válida.',
+            'image.required' => 'Es necesario subir una imagen.',
+            'image.image' => 'El archivo debe ser una imagen.',
+            'image.mimes' => 'La imagen debe ser de tipo jpeg, png, jpg o gif.',
+            'image.max' => 'La imagen no debe exceder los 2MB.',
         ];
     }
 }

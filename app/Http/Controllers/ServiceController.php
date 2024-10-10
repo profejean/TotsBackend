@@ -35,4 +35,5 @@ class ServiceController extends Controller
         Service::destroy($id);
         return response()->json(null, Response::HTTP_NO_CONTENT);
     }
+    
 }

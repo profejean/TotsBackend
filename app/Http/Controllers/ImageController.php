@@ -1,8 +1,6 @@
 <?php
-
 namespace App\Http\Controllers;
 
-use App\Models\SpaceImage;
 use App\Models\Space;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreImageRequest;
@@ -11,15 +9,17 @@ class ImageController extends Controller
 {
     public function store(StoreImageRequest $request, $spaceId)
     {
-        $request->validate([
-            'url' => 'required|url',
-        ]);
-
+      
         $space = Space::findOrFail($spaceId);
-        $image = $space->images()->create([
-            'url' => $request->url,
-        ]);
 
+      
+        $path = $request->file('image')->store('space-images', 'public');
+
+       
+        $image = $space->spaceImages()->create([
+            'url' => $path, 
+        ]);
+       
         return response()->json($image, 201);
     }
 

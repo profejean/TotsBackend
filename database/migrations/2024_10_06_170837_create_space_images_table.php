@@ -1,22 +1,23 @@
 <?php
+
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class SpaceImage extends Migration
+class CreateSpaceImagesTable extends Migration
 {
     public function up()
     {
-        Schema::create('images', function (Blueprint $table) {
+        Schema::create('space_images', function (Blueprint $table) {
             $table->id();
             $table->foreignId('space_id')->constrained()->onDelete('cascade');
-            $table->string('url'); 
+            $table->string('url'); // URL de la imagen
             $table->timestamps();
         });
     }
 
     public function down()
     {
-        Schema::dropIfExists('images');
+        Schema::dropIfExists('space_images');
     }
 }
